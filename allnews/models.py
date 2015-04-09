@@ -62,7 +62,7 @@ class News(Base):
 
 
 
-
+# query.filter(Model.column.ilike("%ganye%"))
 
 # class User(Base):
 #     __tablename__ = 'users'
