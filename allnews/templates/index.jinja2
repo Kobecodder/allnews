@@ -1,0 +1,23 @@
+<!doctype html>
+<html class="no-js" lang="en" data-ng-app="Cqladmin">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+{#    <title>cqlAdmin | {{ view.title }}</title>#}
+    <link rel="stylesheet" href="{{ request.static_url('allnews:static/css/foundation/foundation.min.css')}}">
+    <link rel="stylesheet" href="{{ request.static_url('allnews:static/css/foundation/normalize.css')}}">
+
+
+</head>
+<body >
+<div class="row">
+    <div class="large-12 columns">
+        <h1>Welcome to allnews </h1>
+    </div>
+</div>
+{% block newslist %}{% endblock %}
+{% block table %}{% endblock %}
+{% block column %}{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends "index.jinja2" %}
+{% block table %}
+<div class="row">
+    <div class="large-6 columns">
+        All table of{{ keyspace }}
+        <table>
+            <thead>
+            <tr>
+                <th>Table Name</th>
+                <th>Drop Table</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for table in tables %}
+                <tr>
+                    <td><a href="/table/{{ keyspace }}/{{ table.columnfamily_name }}">{{ table.columnfamily_name }}</a></td>
+                    <td><a href="/table/{{ table.columnfamily_name }}">Drop</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <div class="large-6 columns">
+
+    </div>
+</div>
+{% endblock %}
