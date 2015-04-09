@@ -29,7 +29,8 @@ class BasicViews:
         newsset = News.all('home')
         pager=News.get_paginator('home')
         print (pager)
-        if self.request.params:
+        # if self.request.params:
+        if self.request.params.get('next_page', ''):
             next = self.request.params['next_page']
             page_number = int(next)
             newsset = News.all('home').offset(pager[int(next)])
