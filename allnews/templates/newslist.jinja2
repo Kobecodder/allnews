@@ -1,18 +1,52 @@
 {% extends "index.jinja2" %}
 {% block newslist %}
-<div class="row">
-    <div class="large-8 columns">
-        <ul>
-            {% for news in newsset %}
-                <li>
-                {{ news.title }} <br/>
-                {{ news.source }}
-                </li>
 
+    <div class="row">
+        <div class="large-9 small-12 columns">
+            {% for news in newsset %}
+                <div class="row">
+                    <div class="large-2 columns small-3">
+
+                        {% if news.image_url %}
+                            <img src="{{ news.image_url }}"/>
+                        {% else %}
+                             <img src="{{ request.static_url('allnews:static/image/news_defaut.png')}}"/>gi
+                        {% endif %}
+                    </div>
+                    <div class="large-10 columns">
+                        <h4>{{ news.title }}</h4
+                        <p>{{ news.description }}</p>
+                        <ul class="inline-list">
+                            <li><a href="">{{ news.source}}</a></li>
+                            <li><a href="">Share</a></li>
+                        </ul>
+                    </div>
+                </div>
+                 <hr/>
             {% endfor %}
-        </ul>
+
+        </div>
+        <div class="large-3 columns"></div>
 
     </div>
-    <div class="large-4 columns"></div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}
