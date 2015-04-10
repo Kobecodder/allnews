@@ -43,7 +43,7 @@ class News(Base):
     source =        Column( String, nullable=False)
     created =       Column( DateTime, default=datetime.datetime.now())
     count =         Column(Integer, nullable=True)
-    language =      Column(Text, nullable=True)
+    # language =      Column(Text, nullable=True)
 
 
     @classmethod
