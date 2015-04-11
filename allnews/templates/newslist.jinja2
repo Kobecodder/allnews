@@ -3,6 +3,19 @@
 
     <div class="row">
         <div class="large-9 small-12 columns">
+            <div class="row">
+                <div large-10 small-9 columns>
+                    <form method="get" action="/category/{{ view.category }}" accept-charset="UTF-8">
+                        <input id="search" class="search-bar" type="text" placeholder="Find an News" name="search">
+                    </form>
+
+                </div>
+                <div class="large-2 small-3 columns">
+
+                </div>
+
+            </div>
+
             {% for news in newsset %}
                 <div class="row">
                     <div class="large-2 columns small-3">
@@ -26,38 +39,18 @@
             {% endfor %}
             <div class="pagination-centered">
             <ul class="pagination" aria-label="Pagination">
-                <li class="arrow unavailable"><a href="">&laquo; Previous</a></li>
+{#                <li class="arrow unavailable"><a href="">&laquo; Previous</a></li>#}
                 {% if pager %}
                     {% for key, value in pager.items() %}
                            <li><a href="?next_page={{ key }}">{{ key }}</a></li>
                     {% endfor %}
                 {% endif %}
-                <li class="arrow"><a href="">Next &raquo;</a></li>
+{#                <li class="arrow"><a href="">Next &raquo;</a></li>#}
             </ul>
             </div>
 
         </div>
-        <div class="large-3 columns"></div>
+        <div class="large-3 columns hide-for-small"></div>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {% endblock %}

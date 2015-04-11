@@ -5,6 +5,7 @@ from sqlalchemy import (
     Integer,
     Text,
     DateTime,
+    or_
     )
 import datetime
 from sqlalchemy.ext.declarative import declarative_base
@@ -48,7 +49,7 @@ class News(Base):
 
     @classmethod
     def all(cls, category):
-        return DBSession.query(News).order_by(News.title).limit(20)
+        return DBSession.query(News).filter(News.category == category).order_by(News.title).limit(20)
 
     @classmethod
     def by_id(cls, id):
@@ -59,6 +60,10 @@ class News(Base):
         total_row = DBSession.query(News).filter(News.category == category).count()
         item_per_page = 20
         return pager(total_row, item_per_page)
+
+    @classmethod
+    def search(cls, text):
+        return DBSession.query(News).filter(or_(News.title.ilike("%"+text+"%"), News.description.ilike("%"+text +"%"))).order_by(News.title).limit(20)
 
 
 
