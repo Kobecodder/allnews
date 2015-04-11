@@ -10,20 +10,31 @@
                         {% if news.image_url %}
                             <img src="{{ news.image_url }}"/>
                         {% else %}
-                             <img src="{{ request.static_url('allnews:static/image/news_defaut.png')}}"/>gi
+                            <img src="{{ request.static_url('allnews:static/image/news_defaut.png')}}"/>
                         {% endif %}
                     </div>
                     <div class="large-10 columns">
-                        <h4>{{ news.title }}</h4
-                        <p>{{ news.description }}</p>
+                        <h4 class="heading"><a href="{{ news.detail_url}}">{{ news.title }}</a></h4>
+                        <p>{{ news.description }} <a class=" secondary" href="{{ news.detail_url }}">--></a></p>
                         <ul class="inline-list">
-                            <li><a href="">{{ news.source}}</a></li>
-                            <li><a href="">Share</a></li>
+                            <li class="radius info label"><a href="{{ news.detail_url}}"><strong>{{ news.source}}</strong></a></li>
+                            <li  class="radius info label"><a href="">{{ news.created.strftime('%Y-%m-%d') }}</a></li>
                         </ul>
                     </div>
                 </div>
-                 <hr/>
+                <hr/>
             {% endfor %}
+            <div class="pagination-centered">
+            <ul class="pagination" aria-label="Pagination">
+                <li class="arrow unavailable"><a href="">&laquo; Previous</a></li>
+                {% if pager %}
+                    {% for key, value in pager.items() %}
+                           <li><a href="?next_page={{ key }}">{{ key }}</a></li>
+                    {% endfor %}
+                {% endif %}
+                <li class="arrow"><a href="">Next &raquo;</a></li>
+            </ul>
+            </div>
 
         </div>
         <div class="large-3 columns"></div>

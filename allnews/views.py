@@ -27,16 +27,13 @@ class BasicViews:
     @view_config(route_name='home', renderer='templates/newslist.jinja2')
     def my_view(self):
         newsset = News.all('home')
-        pager=News.get_paginator('home')
-        print (pager)
-        # if self.request.params:
+        pager = News.get_paginator('home')
         if self.request.params.get('next_page', ''):
             next = self.request.params['next_page']
-            page_number = int(next)
             newsset = News.all('home').offset(pager[int(next)])
 
 
-        return {'newsset': newsset}
+        return {'newsset': newsset, 'pager': pager}
 
 
 
