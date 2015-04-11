@@ -2,3 +2,9 @@
     background: none repeat scroll 0 0 #074e68;
     margin-bottom: 23px;
 }
+.heading a {
+    color: #000;
+}
+.heading a:hover {
+    color: #097cff;
+}
