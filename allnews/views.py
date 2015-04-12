@@ -9,36 +9,34 @@ from .models import (
     )
 
 
-# @view_config(route_name='home', renderer='templates/newslist.jinja2')
-# def my_view(request):
-#     # one = DBSession.query(MyModel).filter(MyModel.name == 'one').limit()
-#     newsset = News.all('home')
-#     pager=News.get_paginator('home')
-#     print (pager)
-#
-#     return {'newsset': newsset}
-
-
 class BasicViews:
     def __init__(self, request):
         self.request = request
         self.title = 'Welcome'
+        self.category = 'home'
 
     @view_config(route_name='home', renderer='templates/newslist.jinja2')
-    def my_view(self):
+    def home_view(self):
         newsset = News.all('home')
-        pager=News.get_paginator('home')
-        print (pager)
-        # if self.request.params:
+        pager = News.get_paginator('home')
         if self.request.params.get('next_page', ''):
             next = self.request.params['next_page']
-            page_number = int(next)
             newsset = News.all('home').offset(pager[int(next)])
+        return {'newsset': newsset, 'pager': pager}
 
-
-        return {'newsset': newsset}
-
-
-
+    @view_config(route_name='news_category', renderer='templates/newslist.jinja2')
+    def category_view(self):
+        category = self.request.matchdict['category']
+        self.category = category
+        newsset = News.all(category)
+        pager = News.get_paginator(category)
+        if self.request.params.get('next_page', ''):
+            next = self.request.params['next_page']
+            newsset = News.all(category).offset(pager[int(next)])
+        if self.request.params.get('search', ''):
+            search_param = self.request.params['search']
+            newsset=News.search(search_param)
+            pager={}
+        return {'newsset': newsset, 'pager': pager}
 
 

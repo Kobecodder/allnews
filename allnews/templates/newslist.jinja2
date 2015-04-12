@@ -1,18 +1,56 @@
 {% extends "index.jinja2" %}
 {% block newslist %}
-<div class="row">
-    <div class="large-8 columns">
-        <ul>
-            {% for news in newsset %}
-                <li>
-                {{ news.title }} <br/>
-                {{ news.source }}
-                </li>
 
+    <div class="row">
+        <div class="large-9 small-12 columns">
+            <div class="row">
+                <div large-10 small-9 columns>
+                    <form method="get" action="/category/{{ view.category }}" accept-charset="UTF-8">
+                        <input id="search" class="search-bar" type="text" placeholder="Find an News" name="search">
+                    </form>
+
+                </div>
+                <div class="large-2 small-3 columns">
+
+                </div>
+
+            </div>
+
+            {% for news in newsset %}
+                <div class="row">
+                    <div class="large-2 columns small-3">
+
+                        {% if news.image_url %}
+                            <img src="{{ news.image_url }}"/>
+                        {% else %}
+                            <img src="{{ request.static_url('allnews:static/image/news_defaut.png')}}"/>
+                        {% endif %}
+                    </div>
+                    <div class="large-10 columns">
+                        <h4 class="heading"><a href="{{ news.detail_url}}">{{ news.title }}</a></h4>
+                        <p>{{ news.description }} <a class=" secondary" href="{{ news.detail_url }}">--></a></p>
+                        <ul class="inline-list">
+                            <li class="radius info label"><a href="{{ news.detail_url}}"><strong>{{ news.source}}</strong></a></li>
+                            <li  class="radius info label"><a href="">{{ news.created.strftime('%Y-%m-%d') }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <hr/>
             {% endfor %}
-        </ul>
+            <div class="pagination-centered">
+            <ul class="pagination" aria-label="Pagination">
+{#                <li class="arrow unavailable"><a href="">&laquo; Previous</a></li>#}
+                {% if pager %}
+                    {% for key, value in pager.items() %}
+                           <li><a href="?next_page={{ key }}">{{ key }}</a></li>
+                    {% endfor %}
+                {% endif %}
+{#                <li class="arrow"><a href="">Next &raquo;</a></li>#}
+            </ul>
+            </div>
+
+        </div>
+        <div class="large-3 columns hide-for-small"></div>
 
     </div>
-    <div class="large-4 columns"></div>
-</div>
 {% endblock %}

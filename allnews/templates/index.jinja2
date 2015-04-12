@@ -3,23 +3,82 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-{#    <title>cqlAdmin | {{ view.title }}</title>#}
+    <title>kobchobor | {{ view.title }}</title>
     <link rel="stylesheet" href="{{ request.static_url('allnews:static/css/foundation/foundation.min.css')}}">
     <link rel="stylesheet" href="{{ request.static_url('allnews:static/css/foundation/normalize.css')}}">
+    <link rel="stylesheet" href="{{ request.static_url('allnews:static/css/news.css')}}">
+    <script src="{{request.static_url('allnews:static/js/foundation/jquery.js')}}"></script>
+    <script src="{{request.static_url('allnews:static/js/foundation/foundation.min.js')}}"></script>
 
 
 </head>
 <body >
-<div class="row">
-    <div class="large-12 columns">
-        <h1>Welcome to allnews </h1>
+<nav class="top-bar">
+    <ul class="title-area">
+        <li class="name">
+            <h1><a title="Sobkhobor" href="http://sobkhobor.com">Sobkhobor</a> </h1>
+        </li>
+    </ul>
+    <section class="top-bar-section">
+        <ul class="right">
+            <li>
+                <a class="" href="/">Home</a>
+            </li>
+            <li>
+                <a class="" href="/category/bangladesh">Bangladesh</a>
+            </li>
+            <li>
+                <a class="" href="/category/international">International</a>
+            </li>
+            <li>
+                <a class="" href="/category/economy">Economy</a>
+            </li>
+            <li>
+                <a class="" href="/category/sports">Sports</a>
+            </li>
+            <li>
+                <a class="" href="/category/technology">Technology</a>
+            </li>
+            <li>
+                <a class="" href="/category/politics">Politics</a>
+            </li>
+            <li>
+                <a class="" href="/category/entertainment">Entertainment</a>
+            </li>
+            <li>
+                <a class="" href="/category/life_style">Life style</a>
+            </li>
+        </ul>
+    </section>
+</nav>
+<section role="main">
+    <div class="header  hide-for-small">
+        <div class="row">
+            <div class="large-6 columns">
+                <h2 ><a href="">News window  </a></h2>
+            </div>
+            <div class="large-6 columns"></div>
+        </div>
     </div>
-</div>
-{% block newslist %}{% endblock %}
+
+
+
+    {% block newslist %}{% endblock %}
+
+
+</section>
+
+
+
+
+
+
+
 {% block table %}{% endblock %}
 {% block column %}{% endblock %}
 
-<script src="{{request.static_url('allnews:static/js/angular_1_3_15/angular.min.js')}}"></script>
+{#<script src="{{request.static_url('allnews:static/js/angular_1_3_15/angular.min.js')}}"></script>#}
+
 
 </body>
 </html>
