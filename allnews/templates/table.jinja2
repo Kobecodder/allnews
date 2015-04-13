@@ -1,39 +1,89 @@
-{% extends "index.jinja2" %}
-{% block table %}
-<div class="row">
-    <div class="large-6 columns">
-        All table of{{ keyspace }}
-        <table>
-            <thead>
-            <tr>
-                <th>Table Name</th>
-                <th>Drop Table</th>
+<nav class="top-bar">
+    <ul class="title-area">
+        <li class="name">
+            <h1><a title="Sobkhobor" href="http://sobkhobor.com">Sobkhobor</a> </h1>
+        </li>
+    </ul>
+    <section class="top-bar-section">
+        <ul class="right">
+            <li>
+                <a class="" href="/">Home</a>
+            </li>
+            <li>
+                <a class="" href="/category/bangladesh">Bangladesh</a>
+            </li>
+            <li>
+                <a class="" href="/category/international">International</a>
+            </li>
+            <li>
+                <a class="" href="/category/economy">Economy</a>
+            </li>
+            <li>
+                <a class="" href="/category/sports">Sports</a>
+            </li>
+            <li>
+                <a class="" href="/category/technology">Technology</a>
+            </li>
+            <li>
+                <a class="" href="/category/politics">Politics</a>
+            </li>
+            <li>
+                <a class="" href="/category/entertainment">Entertainment</a>
+            </li>
+            <li>
+                <a class="" href="/category/life_style">Life style</a>
+            </li>
+        </ul>
 
-            </tr>
-            </thead>
-            <tbody>
-            {% for table in tables %}
-                <tr>
-                    <td><a href="/table/{{ keyspace }}/{{ table.columnfamily_name }}">{{ table.columnfamily_name }}</a></td>
-                    <td><a href="/table/{{ table.columnfamily_name }}">Drop</a></td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
 
+        <dd><a href="#">Active</a></dd>
+                       <dd> <a class="" href="/category/bangladesh">Bangladesh</a></dd>
+                       <dd><a class="" href="/category/international">International</a></dd>
+                       <dd><a class="" href="/category/economy">Economy</a></dd>
+                       <dd><a class="" href="/category/sports">Sports</a></dd>
+                       <dd><a class="" href="/category/technology">Technology</a></dd>
+                       <dd><a class="" href="/category/politics">Politics</a></dd>
+                       <dd><a class="" href="/category/entertainment">Entertainment</a></dd>
+                       <dd><a class="" href="/category/life_style">Life style</a></dd>
+                       <dd><a href="#">Pending</a></dd>
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+</nav>
+<section role="main">
+    <div class="header  hide-for-small">
+        <div class="row">
+            <div class="large-6 columns">
+                <h2 ><a href="">News window  </a></h2>
+            </div>
+            <div class="large-6 columns"></div>
+        </div>
     </div>
 
 
-    <div class="large-6 columns">
-
-    </div>
-</div>
-{% endblock %}
 
 
 
-{#<form class="form-search text-center btn-info"  method="get" action="/books/">#}
-{#            <input class="home-search-box searchbar" type="text" name="q" id="id_q" placeholder="Subjects...">#}
-{#            <button type="submit"  >Search</button>#}
-{##}
-{#        </form>#}
+
+</section>
+
+
+
+ <div large-10 small-9 columns>
+                    <form method="get" action="/category/{{ view.category }}" accept-charset="UTF-8">
+                        <input id="search" class="search-bar" type="text" placeholder="Find an News" name="search">
+                    </form>
+
+                </div>
+                <div class="large-2 small-3 columns">
+
+                </div>

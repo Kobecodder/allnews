@@ -2,17 +2,26 @@
 {% block newslist %}
 
     <div class="row">
-        <div class="large-9 small-12 columns">
+        <div class="large-1 columns hide-for-small"></div>
+        <div class="large-10 small-12 columns">
             <div class="row">
-                <div large-10 small-9 columns>
-                    <form method="get" action="/category/{{ view.category }}" accept-charset="UTF-8">
-                        <input id="search" class="search-bar" type="text" placeholder="Find an News" name="search">
-                    </form>
+                <div class="large-12 columns ">
+                   <dl class="sub-nav show-for-large-only">
+                       <dd><a class="" href="/">প্রচ্ছদ</a></dd>
+                       <dd> <a class="" href="/category/bangladesh">বাংলাদেশ</a></dd>
+                       <dd><a class="" href="/category/international">আন্তর্জাতিক</a></dd>
+                       <dd><a class="" href="/category/economy">অর্থনীতি</a></dd>
+                       <dd><a class="" href="/category/sports">খেলা</a></dd>
+                       <dd><a class="" href="/category/technology">বিজ্ঞান ও প্রযুক্তি</a></dd>
+                       <dd><a class="" href="/category/politics">রাজনীতি</a></dd>
+                       <dd><a class="" href="/category/entertainment">বিনোদন</a></dd>
+                       <dd><a class="" href="/category/life_style">জীবনযাপন</a></dd>
+                       <dd ><a href="#">সর্বাধিক পঠিত</a></dd>
+
+                   </dl>
 
                 </div>
-                <div class="large-2 small-3 columns">
 
-                </div>
 
             </div>
 
@@ -30,7 +39,7 @@
                         <h4 class="heading"><a href="{{ news.detail_url}}">{{ news.title }}</a></h4>
                         <p>{{ news.description }} <a class=" secondary" href="{{ news.detail_url }}">--></a></p>
                         <ul class="inline-list">
-                            <li class="radius info label"><a href="{{ news.detail_url}}"><strong>{{ news.source}}</strong></a></li>
+                            <li class="radius info label"><a href="#"><strong>source:{{ news.source}}</strong></a></li>
                             <li  class="radius info label"><a href="">{{ news.created.strftime('%Y-%m-%d') }}</a></li>
                         </ul>
                     </div>
@@ -38,19 +47,19 @@
                 <hr/>
             {% endfor %}
             <div class="pagination-centered">
-            <ul class="pagination" aria-label="Pagination">
-{#                <li class="arrow unavailable"><a href="">&laquo; Previous</a></li>#}
-                {% if pager %}
-                    {% for key, value in pager.items() %}
-                           <li><a href="?next_page={{ key }}">{{ key }}</a></li>
-                    {% endfor %}
-                {% endif %}
-{#                <li class="arrow"><a href="">Next &raquo;</a></li>#}
-            </ul>
+                <ul class="pagination" aria-label="Pagination">
+                    {#                <li class="arrow unavailable"><a href="">&laquo; Previous</a></li>#}
+                    {% if pager %}
+                        {% for key, value in pager.items() %}
+                            <li><a href="?next_page={{ key }}">{{ key }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                    {#                <li class="arrow"><a href="">Next &raquo;</a></li>#}
+                </ul>
             </div>
 
         </div>
-        <div class="large-3 columns hide-for-small"></div>
+        <div class="large-1 columns hide-for-small"></div>
 
     </div>
 {% endblock %}
