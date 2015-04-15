@@ -5,7 +5,8 @@ from sqlalchemy import (
     Integer,
     Text,
     DateTime,
-    or_
+    or_,
+    and_
     )
 import datetime
 from sqlalchemy.ext.declarative import declarative_base
@@ -71,6 +72,10 @@ class News(Base):
     @classmethod
     def popular(cls):
         return DBSession.query(News).order_by(News.count).limit(20)
+
+    @classmethod
+    def newspaper_sort(cls, category, paper_name):
+        return DBSession.query(News).filter(and_(News.category == category), (News.paper_name == paper_name))
 
 
 

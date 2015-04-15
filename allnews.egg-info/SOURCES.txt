@@ -25,6 +25,8 @@ allnews/static/theme.min.css
 allnews/static/css/news.css
 allnews/static/css/foundation/foundation.min.css
 allnews/static/css/foundation/normalize.css
+allnews/static/image/banner.jpg
+allnews/static/image/banner_2.jpg
 allnews/static/image/create_2.png
 allnews/static/image/news_defaut.png
 allnews/static/image/sitedesign.png

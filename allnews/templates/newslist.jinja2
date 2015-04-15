@@ -16,12 +16,12 @@
                         <dd><a class="" href="/category/politics">রাজনীতি</a></dd>
                         <dd><a class="" href="/category/entertainment">বিনোদন</a></dd>
                         <dd><a class="" href="/category/life_style">জীবনযাপন</a></dd>
-                        <dd ><a href="news/popular">সর্বাধিক পঠিত</a></dd>
+                        <dd ><a href="/news/popular">সর্বাধিক পঠিত</a></dd>
 
                     </dl>
                     <div class="show-for-small-only choose">
                         <select onChange="window.location.href=this.value">
-                            <option value="/">- Select Category -</option>
+                            <option value="#">- Select Category -</option>
                             <option value="#">প্রচ্ছদ</option>
                             <option value="/category/bangladesh">বাংলাদেশ</option>
                             <option value="/category/international">আন্তর্জাতিক</option>
@@ -31,7 +31,7 @@
                             <option value="/category/politics">রাজনীতি</option>
                             <option value="/category/entertainment">বিনোদন</option>
                             <option value="/category/life_style">জীবনযাপন</option>
-                            <option value="news/popular">সর্বাধিক পঠিত</option>
+                            <option value="/news/popular">সর্বাধিক পঠিত</option>
                         </select>
                     </div>
                 </div>
@@ -41,12 +41,16 @@
                 <div class=" large-12 small-12 columns">
                     <div class="choose">
                         <select onChange="window.location.href=this.value">
-                            <option value="/">- Select Newspaper-</option>
-                            <option value="#/search/কোয়ান্টাম মেথড">কোয়ান্টাম মেথড</option>
-                            <option value="#/search/আত্মনির্মাণ">আত্মনির্মাণ</option>
-                            <option value="#/search/দৃষ্টিভঙ্গি">দৃষ্টিভঙ্গি</option>
-                            <option value="#/search/শিক্ষায় সাফল্য">শিক্ষায় সাফল্য</option>
-                            <option value="#/search/গুরুজীর আর্টিকেল">গুরুজীর আর্টিকেল</option>
+                            <option value="#">- Select Newspaper-</option>
+                            <option value="/category/{{ view.category }}/prothom-alo">prothom-alo</option>
+                            <option value="/category/{{ view.category }}/ittefaq">ittefaq</option>
+                            <option value="/category/{{ view.category }}/kalerkantho">kalerkantho</option>
+                            <option value="/category/{{ view.category }}/samakal">samakal</option>
+                            <option value="/category/{{ view.category }}/mzamin">mzamin</option>
+                            <option value="/category/{{ view.category }}/jugantor">jugantor</option>
+                            <option value="/category/{{ view.category }}/bd-pratidin">bd-pratidin</option>
+                            <option value="/category/{{ view.category }}/alokitobangladesh">alokitobangladesh</option>
+
                         </select>
                     </div>
                 </div>
@@ -69,7 +73,7 @@
                         <h4 class="heading"><a href="{{ news.detail_url}}">{{ news.title }}</a></h4>
                         <p>{{ news.description }} <a class=" secondary" href="{{ news.detail_url }}">--></a></p>
                         <ul class="inline-list">
-                            <li class="radius info label"><a href="#"><strong>source:{{ news.source}}</strong></a></li>
+                            <li class="radius info label"><a href="#"><strong>source: <lead>{{ news.source}}</lead></strong></a></li>
                             <li  class="radius info label"><a href="">{{ news.created.strftime('%Y-%m-%d') }}</a></li>
                         </ul>
                     </div>

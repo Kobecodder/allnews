@@ -48,4 +48,13 @@ class BasicViews:
             newsset = News.popular().offset(pager[int(next)])
         return {'newsset': newsset, 'pager': pager}
 
+    @view_config(route_name='newspaper_sort', renderer='templates/newslist.jinja2')
+    def newspaper_sort_view(self):
+        category = self.request.matchdict['category']
+        newspaper = self.request.matchdict['newspaper']
+        self.category = category
+        newsset = News.newspaper_sort(category,newspaper)
+        pager = {}
+        return {'newsset': newsset, 'pager': pager}
+
 
