@@ -1,10 +1,31 @@
-.header {
-    background: none repeat scroll 0 0 #074e68;
-    margin-bottom: 23px;
+
+.banner img{
+    width: 100%;
 }
+
 .heading a {
     color: #000;
 }
 .heading a:hover {
     color: #097cff;
 }
+
+.sub-nav dd a{
+    padding: 0px;
+    color: #e8e8e8;
+}
+
+.sub-nav{
+    background-color: #4f4f4f;
+    height: 50px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    font-size:5px;
+}
+.choose{
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+
+

@@ -39,4 +39,13 @@ class BasicViews:
             pager={}
         return {'newsset': newsset, 'pager': pager}
 
+    @view_config(route_name='popular', renderer='templates/newslist.jinja2')
+    def popular_view(self):
+        newsset = News.popular()
+        pager ={}
+        if self.request.params.get('next_page', ''):
+            next = self.request.params['next_page']
+            newsset = News.popular().offset(pager[int(next)])
+        return {'newsset': newsset, 'pager': pager}
+
 

@@ -44,7 +44,8 @@ class News(Base):
     source =        Column( String, nullable=False)
     created =       Column( DateTime, default=datetime.datetime.now())
     count =         Column(Integer, nullable=True)
-    # language =      Column(Text, nullable=True)
+    language =      Column(Text, nullable=True)
+    paper_name =    Column(Text, nullable=False)
 
 
     @classmethod
@@ -58,12 +59,18 @@ class News(Base):
     @classmethod
     def get_paginator(cls, category):
         total_row = DBSession.query(News).filter(News.category == category).count()
+        if category==None:
+            total_row = DBSession.query(News).count()
         item_per_page = 20
         return pager(total_row, item_per_page)
 
     @classmethod
     def search(cls, text):
         return DBSession.query(News).filter(or_(News.title.ilike("%"+text+"%"), News.description.ilike("%"+text +"%"))).order_by(News.title).limit(20)
+
+    @classmethod
+    def popular(cls):
+        return DBSession.query(News).order_by(News.count).limit(20)
 
 
 
