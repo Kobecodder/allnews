@@ -21,6 +21,12 @@ use = egg:waitress#main
 host = 0.0.0.0
 port = 6543
 
+[uwsgi]
+socket = /tmp/uwsgi.sock
+master = true
+daemonize = ./uwsgi.log
+pidfile = ./pid_5000.pid
+
 ###
 # logging configuration
 # http://docs.pylonsproject.org/projects/pyramid/en/1.5-branch/narr/logging.html
