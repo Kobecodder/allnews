@@ -1,5 +1,6 @@
 from pyramid.response import Response
 from pyramid.view import view_config
+from pyramid.httpexceptions import HTTPFound
 
 from sqlalchemy.exc import DBAPIError
 
@@ -56,5 +57,13 @@ class BasicViews:
         newsset = News.newspaper_sort(category,newspaper)
         pager = {}
         return {'newsset': newsset, 'pager': pager}
+
+    @view_config(route_name='url_redirect',  renderer='string')
+    def redirect_url(self):
+        data_id = self.request.matchdict['id']
+        query = News.by_id(data_id)
+        destination_url = query.detail_url
+        return HTTPFound(destination_url)
+
 
 

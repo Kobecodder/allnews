@@ -10,6 +10,7 @@ from sqlalchemy import (
     )
 import datetime
 from sqlalchemy.ext.declarative import declarative_base
+from pyramid.httpexceptions import HTTPFound
 from sqlalchemy.sql.expression import func
 from allnews.utility_script import pager
 from sqlalchemy.orm import (
@@ -79,7 +80,10 @@ class News(Base):
 
     @classmethod
     def by_id(cls, id):
-        return DBSession.query(News).filter(News.id == id).first()
+        detail_data = DBSession.query(News).filter(News.id == id).first()
+        increment = detail_data.count + 1
+        DBSession.query(News).filter_by(id=id).update({"count": increment})
+        return detail_data
 
     @classmethod
     def search(cls, text):
@@ -104,45 +108,3 @@ class News(Base):
 
 # query.filter(Model.column.ilike("%ganye%"))
 
-# class User(Base):
-#     __tablename__ = 'users'
-#     id = Column(Integer, primary_key=True)
-#     name = Column(Unicode(255), unique=True, nullable=False)
-#     password = Column(Unicode(255), nullable=False)
-#     last_logged = Column(DateTime, default=datetime.datetime.utcnow)
-#
-#     @classmethod
-#     def by_name(cls, name):
-#         return DBSession.query(User).filter(User.name == name).first()
-#
-#     def verify_password(self, password):
-#         return self.password == password
-
-# class Entry(Base):
-#     __tablename__ = 'entries'
-#     id = Column(Integer, primary_key=True)
-#     title = Column(Unicode(255), unique=True, nullable=False)
-#     body = Column(UnicodeText, default=u'')
-#     created = Column(DateTime, default=datetime.datetime.utcnow)
-#     edited = Column(DateTime, default=datetime.datetime.utcnow)
-#
-    # @classmethod
-    # def all(cls):
-    #     return DBSession.query(Entry).order_by(sa.desc(Entry.created))
-    #
-    # @classmethod
-    # def by_id(cls, id):
-    #     return DBSession.query(Entry).filter(Entry.id == id).first()
-
-#     @property
-#     def slug(self):
-#         return urlify(self.title)
-#
-#     @property
-#     def created_in_words(self):
-#         return time_ago_in_words(self.created)
-#
-    # @classmethod
-    # def get_paginator(cls, request, page=1):
-    #     page_url = PageURL_WebOb(request)
-    #     return Page(Entry.all(), page, url=page_url, items_per_page=5)
