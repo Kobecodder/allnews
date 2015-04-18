@@ -6,7 +6,6 @@ production.ini
 setup.py
 allnews/__init__.py
 allnews/models.py
-allnews/tests.py
 allnews/utility_script.py
 allnews/views.py
 allnews.egg-info/PKG-INFO
