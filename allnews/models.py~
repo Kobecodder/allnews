@@ -24,6 +24,15 @@ DBSession = scoped_session(sessionmaker(extension=ZopeTransactionExtension()))
 Base = declarative_base()
 
 
+class MyModel(Base):
+    __tablename__ = 'models'
+    id = Column(Integer, primary_key=True)
+    name = Column(Text)
+    value = Column(Integer)
+
+Index('my_index', MyModel.name, unique=True, mysql_length=255)
+
+
 class News(Base):
     """Sqlalchemy deals model"""
     __tablename__ = "news"
@@ -45,7 +54,7 @@ class News(Base):
     def all(cls, category):
         date_today = datetime.date.today()
         queryset = DBSession.query(News).filter(and_(News.category == category), (News.created == date_today)).order_by(News.title).limit(20)
-        if queryset.count() == 0:
+        if queryset is None:
             previous_day = date_today - datetime.timedelta(days=1)
             queryset = DBSession.query(News).filter(and_(News.category == category), (News.created == previous_day)).order_by(News.title).limit(20)
         return queryset
@@ -54,7 +63,7 @@ class News(Base):
     def get_paginator(cls, category):
         date_today = datetime.date.today()
         total_row = DBSession.query(News).filter(and_(News.category == category), (News.created == date_today)).count()
-        if total_row == 0:
+        if total_row is None:
             previous_day = date_today - datetime.timedelta(days=1)
             total_row = DBSession.query(News).filter(and_(News.category == category), (News.created == previous_day)).count()
         item_per_page = 20
@@ -64,7 +73,7 @@ class News(Base):
     def newspaper_sort(cls, category, paper_name):
         date_today = datetime.date.today()
         queryset = DBSession.query(News).filter(and_(News.category == category), (News.paper_name == paper_name), (News.created == date_today))
-        if queryset.count() == 0:
+        if queryset is None:
             previous_day = date_today - datetime.timedelta(days=1)
             queryset = DBSession.query(News).filter(and_(News.category == category), (News.paper_name == paper_name), (News.created == previous_day))
         return queryset

@@ -1,9 +1,5 @@
-from pyramid.response import Response
 from pyramid.view import view_config
 from pyramid.httpexceptions import HTTPFound
-
-from sqlalchemy.exc import DBAPIError
-
 from .models import (
     DBSession,
     News,
@@ -13,7 +9,7 @@ from .models import (
 class BasicViews:
     def __init__(self, request):
         self.request = request
-        self.title = 'Welcome'
+        self.title = 'Now all news in single platform'
         self.category = 'home'
 
     @view_config(route_name='home', renderer='templates/newslist.jinja2')
