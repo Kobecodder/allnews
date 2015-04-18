@@ -37,3 +37,5 @@ nosetests.xml
 media/
 *.log
 production.ini
+pid_5000.pid
+uwsgi.log
