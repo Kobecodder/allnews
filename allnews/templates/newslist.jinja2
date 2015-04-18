@@ -71,12 +71,11 @@
                         {% endif %}
                     </div>
                     <div class="large-10 columns">
-                        <h4 class="heading"><a href="{{ news.detail_url}}" target="_blank">{{ news.title }}</a></h4>
-                        <p>{{ news.description }} </p>
+                        <h4 class="heading"><a target="_blank" href="news/{{ news.id }}/{{ news.title }}">{{ news.title }}</a></h4>
+                        <p>{{ news.description }} <a target="_blank" href="news/{{ news.id }}/{{ news.title }}">--></a></p>
                         <ul class="inline-list">
-                            <li class="radius info label"><a href="#"><strong>source: <lead>{{ news.source}}</lead></strong></a></li>
+                            <li class="radius info label"><a target="_blank" href="news/{{ news.id }}/{{ news.title }}"><strong>source: <lead>{{ news.source}}</lead></strong></a></li>
                             <li  class="radius info label"><a href="">{{ news.created.strftime('%Y-%m-%d') }}</a></li>
-                            <li  class="radius info label"><a href="">{{ news.id }}</a></li>
                         </ul>
                     </div>
                 </div>
