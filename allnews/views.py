@@ -39,7 +39,7 @@ class BasicViews:
     @view_config(route_name='popular', renderer='templates/newslist.jinja2')
     def popular_view(self):
         newsset = News.popular()
-        pager ={}
+        pager = News.popularity_paginator()
         if self.request.params.get('next_page', ''):
             next = self.request.params['next_page']
             newsset = News.popular().offset(pager[int(next)])
@@ -60,6 +60,11 @@ class BasicViews:
         query = News.by_id(data_id)
         destination_url = query.detail_url
         return HTTPFound(destination_url)
+
+    @view_config(route_name='policy', renderer='templates/policy.jinja2')
+    def policy(self):
+
+        return {'policy': 'policy'}
 
 
 

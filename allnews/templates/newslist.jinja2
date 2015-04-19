@@ -74,7 +74,7 @@
                         <p>{{ news.description }} <a target="_blank" href="/news/{{ news.id }}/{{ news.title }}">--></a></p>
                         <ul class="inline-list">
                             <li class="radius info label"><a target="_blank" href="/news/{{ news.id }}/{{ news.title }}"><strong>source: <lead>{{ news.source}}</lead></strong></a></li>
-                            <li  class="radius info label"><a href="">{{ news.created.strftime('%Y-%m-%d') }}</a></li>
+                            <li  class="radius info label">{{ news.created.strftime('%Y-%m-%d') }}</li>
                         </ul>
                     </div>
                 </div>
@@ -82,13 +82,11 @@
             {% endfor %}
             <div class="pagination-centered">
                 <ul class="pagination" aria-label="Pagination">
-                    {#                <li class="arrow unavailable"><a href="">&laquo; Previous</a></li>#}
                     {% if pager %}
                         {% for key, value in pager.items() %}
-                            <li><a href="?next_page={{ key }}">{{ key }}</a></li>
+                            <li><a  href="?next_page={{ key }}"> <strong class="breadcrumbs">{{ key }}</strong></a></li>
                         {% endfor %}
                     {% endif %}
-                    {#                <li class="arrow"><a href="">Next &raquo;</a></li>#}
                 </ul>
             </div>
 

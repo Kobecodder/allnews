@@ -20,7 +20,11 @@
     height: 50px;
     padding-bottom: 5px;
     padding-top: 10px;
-    font-size:5px;
+}
+.sub-nav dd a {
+    font-size: 17px;
+    padding: 0;
+    color: whitesmoke;
 }
 .choose{
     padding: 10px;

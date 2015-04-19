@@ -53,9 +53,9 @@ class News(Base):
     @classmethod
     def get_paginator(cls, category):
         date_today = datetime.date.today()
+        previous_day = date_today - datetime.timedelta(days=1)
         total_row = DBSession.query(News).filter(and_(News.category == category), (News.created == date_today)).count()
         if total_row == 0:
-            previous_day = date_today - datetime.timedelta(days=1)
             total_row = DBSession.query(News).filter(and_(News.category == category), (News.created == previous_day)).count()
         item_per_page = 20
         return pager(total_row, item_per_page)
@@ -82,7 +82,23 @@ class News(Base):
 
     @classmethod
     def popular(cls):
-        return DBSession.query(News).order_by(News.count).limit(20)
+        date_today = datetime.date.today()
+        queryset = DBSession.query(News).filter(News.created == date_today).order_by(News.count).limit(20)
+        if queryset.count() == 0:
+            previous_day = date_today - datetime.timedelta(days=1)
+            queryset = DBSession.query(News).filter(News.created == previous_day).order_by(News.count).limit(20)
+        return queryset
+
+    @classmethod
+    def popularity_paginator(cls):
+        date_today = datetime.date.today()
+        previous_day = date_today - datetime.timedelta(days=1)
+        total_row = DBSession.query(News).filter(News.created == date_today).count()
+        if total_row == 0:
+            total_row = DBSession.query(News).filter(News.created == previous_day).count()
+        item_per_page = 20
+        return pager(total_row, item_per_page)
+
 
 
 

@@ -1,0 +1,148 @@
+{% extends "index.jinja2" %}
+{% block newslist %}
+
+    <div class="row">
+        <div class="large-1 columns hide-for-small"></div>
+        <div class="large-10 small-12 columns">
+            <div class="row">
+                <div class="large-12 small-12 columns">
+                    <dl class="sub-nav hidden-for-small-only">
+                        <dd><a class="" href="/">প্রচ্ছদ</a></dd>
+                        <dd> <a class="" href="/category/bangladesh">বাংলাদেশ</a></dd>
+                        <dd><a class="" href="/category/international">আন্তর্জাতিক</a></dd>
+                        <dd><a class="" href="/category/economy">অর্থনীতি</a></dd>
+                        <dd><a class="" href="/category/sports">খেলা</a></dd>
+                        <dd><a class="" href="/category/technology">বিজ্ঞান ও প্রযুক্তি</a></dd>
+                        <dd><a class="" href="/category/politics">রাজনীতি</a></dd>
+                        <dd><a class="" href="/category/entertainment">বিনোদন</a></dd>
+                        <dd><a class="" href="/category/life_style">জীবনযাপন</a></dd>
+                        <dd ><a href="/news/popular">সর্বাধিক পঠিত</a></dd>
+
+                    </dl>
+                    <div class="show-for-small-only choose">
+                        <select onChange="window.location.href=this.value">
+                            <option value="#">- Select Category -</option>
+                            <option value="/">প্রচ্ছদ</option>
+                            <option value="/category/bangladesh">বাংলাদেশ</option>
+                            <option value="/category/international">আন্তর্জাতিক</option>
+                            <option value="/category/economy">অর্থনীত</option>
+                            <option value="/category/sports">খেলা</option>
+                            <option value="/category/technology">বিজ্ঞান ও প্রযুক্তি</option>
+                            <option value="/category/politics">রাজনীতি</option>
+                            <option value="/category/entertainment">বিনোদন</option>
+                            <option value="/category/life_style">জীবনযাপন</option>
+                            <option value="/news/popular">সর্বাধিক পঠিত</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 small-12 columns">
+                    <p>
+                    <h3>
+                    Disclaimer
+
+                    </h3> <br/>
+                    The content on this site, including news and other information is not intended for commercial use nor for trading or investing purposes.
+                Content on this site is not appropriate for the purposes of making a decision to carry out a transaction or trade. Nor does it provide any
+                form of advice (investment, tax, legal) amounting to investment advice, or make any recommendations regarding particular financial instruments,
+                investments or products. Neither sobkhobor.com nor its third party
+                providers shall be liable for any damages of any kind arising from the use of this site and its contents, in terms of their
+                correctness, accuracy, timeliness and reliability or otherwise. Although sobkhobor.com makes reasonable efforts to obtain
+                reliable content from third parties, sobkhobor.com does not guarantee the accuracy of or endorse the views or opinions given
+                by any third party content provider. This site may point to other Internet sites that may be of interest to you; however sobkhobor.com
+                does not endorse or take responsibility for the content on such other sites.
+
+                sobkhobor.com does not warrant that this website or any of its functions will be uninterrupted or error-free. Users assume
+                the entire cost of all necessary servicing, repair or correction due to their use of this website.
+                    <br/>
+                    <br/>
+                    <h3>
+                        Privacy
+                    </h3>
+                    <br/>
+                    The personal data collected on this site, notably through electronic subscription forms, are for the exclusive use of sobkhobor.com ,
+                    to the fullest extent permitted by applicable law, and cannot be disclosed or sold to third parties. The users of this site have the rights
+                    of access, opposition and correction of the data they have disclosed. As a result, user's personal data can be corrected, completed,
+                    updated or erased if required to the sobkhobor.com commercial service.
+
+                    sobkhobor.com makes reasonable efforts to implement technology and security features in order to safeguard the privacy of its users
+                    from loss, unauthorized access or improper use.
+
+                    sobkhobor.com may store your information in its databases, such as a Customer Relationship database, for reference. The information
+                    may be retained and used by sobkhobor.com for a reasonable period, reflecting our need to answer queries or resolve problems, provide
+                    improved and new services and any data retention requirements of the law. This means we may retain information after an individual has
+                    ceased interacting with us. sobkhobor.com does not sell, rent or give your personal data to any third party except where the law permits
+                    or unless you specifically agree.
+
+                    Users of the site are invited to inform sobkhobor.com services on any dysfunctions of the site in the light of privacy rights. In its
+                    capacity as a news agency, sobkhobor.com gathers and stores what could be classified as personal data. This is used for news reporting,
+                    opinion polls and related research. This privacy notice does not focus on that type of use.
+
+                    Like most websites, sobkhobor.com .com also collects information through the use of “cookie” technology. Among other things,
+                    a cookie may identify your browser and store information such as the date and time you access the site and the pages visited.
+
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+        <div class="large-1 columns hide-for-small ">
+
+        </div>
+
+    </div>
+{% endblock %}
+
+
+{#Disclaimer#}
+{##}
+{##}
+{#The content on this site, including news and other information is not intended for commercial use nor for trading or investing purposes.#}
+{#Content on this site is not appropriate for the purposes of making a decision to carry out a transaction or trade. Nor does it provide any#}
+{#form of advice (investment, tax, legal) amounting to investment advice, or make any recommendations regarding particular financial instruments,#}
+{#investments or products. Neither sobkhobor.com nor its third party#}
+{#providers shall be liable for any damages of any kind arising from the use of this site and its contents, in terms of their#}
+{#correctness, accuracy, timeliness and reliability or otherwise. Although sobkhobor.com makes reasonable efforts to obtain#}
+{#reliable content from third parties, sobkhobor.com does not guarantee the accuracy of or endorse the views or opinions given#}
+{#by any third party content provider. This site may point to other Internet sites that may be of interest to you; however sobkhobor.com#}
+{#does not endorse or take responsibility for the content on such other sites.#}
+{##}
+{#sobkhobor.com does not warrant that this website or any of its functions will be uninterrupted or error-free. Users assume#}
+{#the entire cost of all necessary servicing, repair or correction due to their use of this website.#}
+{##}
+{##}
+{#Privacy#}
+{##}
+{##}
+{#The personal data collected on this site, notably through electronic subscription forms, are for the exclusive use of sobkhobor.com ,#}
+{#to the fullest extent permitted by applicable law, and cannot be disclosed or sold to third parties. The users of this site have the rights#}
+{#of access, opposition and correction of the data they have disclosed. As a result, user's personal data can be corrected, completed,#}
+{#updated or erased if required to the sobkhobor.com commercial service.#}
+{##}
+{#sobkhobor.com makes reasonable efforts to implement technology and security features in order to safeguard the privacy of its users#}
+{#from loss, unauthorized access or improper use.#}
+{##}
+{#sobkhobor.com may store your information in its databases, such as a Customer Relationship database, for reference. The information#}
+{#may be retained and used by sobkhobor.com for a reasonable period, reflecting our need to answer queries or resolve problems, provide#}
+{#improved and new services and any data retention requirements of the law. This means we may retain information after an individual has#}
+{#ceased interacting with us. sobkhobor.com does not sell, rent or give your personal data to any third party except where the law permits#}
+{#or unless you specifically agree.#}
+{##}
+{#Users of the site are invited to inform sobkhobor.com services on any dysfunctions of the site in the light of privacy rights. In its#}
+{#capacity as a news agency, sobkhobor.com gathers and stores what could be classified as personal data. This is used for news reporting,#}
+{#opinion polls and related research. This privacy notice does not focus on that type of use.#}
+{##}
+{#Like most websites, sobkhobor.com .com also collects information through the use of “cookie” technology. Among other things,#}
+{#a cookie may identify your browser and store information such as the date and time you access the site and the pages visited.#}
